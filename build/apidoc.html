@@ -1,0 +1,1709 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://github.com/stevelacy/gulp-git"
+
+    >gulp-git (v2.1.0)</a>
+</h1>
+<h4>Git plugin for gulp (gulpjs.com)</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gulp-git">module gulp-git</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.add">
+            function <span class="apidocSignatureSpan">gulp-git.</span>add
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.addRemote">
+            function <span class="apidocSignatureSpan">gulp-git.</span>addRemote
+            <span class="apidocSignatureSpan">(remote, url, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.addSubmodule">
+            function <span class="apidocSignatureSpan">gulp-git.</span>addSubmodule
+            <span class="apidocSignatureSpan">(url, name, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.branch">
+            function <span class="apidocSignatureSpan">gulp-git.</span>branch
+            <span class="apidocSignatureSpan">(branch, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.catFile">
+            function <span class="apidocSignatureSpan">gulp-git.</span>catFile
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.checkout">
+            function <span class="apidocSignatureSpan">gulp-git.</span>checkout
+            <span class="apidocSignatureSpan">(branch, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.checkoutFiles">
+            function <span class="apidocSignatureSpan">gulp-git.</span>checkoutFiles
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.clean">
+            function <span class="apidocSignatureSpan">gulp-git.</span>clean
+            <span class="apidocSignatureSpan">(paths, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.clone">
+            function <span class="apidocSignatureSpan">gulp-git.</span>clone
+            <span class="apidocSignatureSpan">(remote, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.commit">
+            function <span class="apidocSignatureSpan">gulp-git.</span>commit
+            <span class="apidocSignatureSpan">(message, opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.diff">
+            function <span class="apidocSignatureSpan">gulp-git.</span>diff
+            <span class="apidocSignatureSpan">(compare, opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.exec">
+            function <span class="apidocSignatureSpan">gulp-git.</span>exec
+            <span class="apidocSignatureSpan">(opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.fetch">
+            function <span class="apidocSignatureSpan">gulp-git.</span>fetch
+            <span class="apidocSignatureSpan">(remote, branch, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.init">
+            function <span class="apidocSignatureSpan">gulp-git.</span>init
+            <span class="apidocSignatureSpan">(opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.merge">
+            function <span class="apidocSignatureSpan">gulp-git.</span>merge
+            <span class="apidocSignatureSpan">(branch, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.pull">
+            function <span class="apidocSignatureSpan">gulp-git.</span>pull
+            <span class="apidocSignatureSpan">(remote, branch, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.push">
+            function <span class="apidocSignatureSpan">gulp-git.</span>push
+            <span class="apidocSignatureSpan">(remote, branch, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.removeRemote">
+            function <span class="apidocSignatureSpan">gulp-git.</span>removeRemote
+            <span class="apidocSignatureSpan">(remote, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.reset">
+            function <span class="apidocSignatureSpan">gulp-git.</span>reset
+            <span class="apidocSignatureSpan">(commit, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.revParse">
+            function <span class="apidocSignatureSpan">gulp-git.</span>revParse
+            <span class="apidocSignatureSpan">(opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.rm">
+            function <span class="apidocSignatureSpan">gulp-git.</span>rm
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.stash">
+            function <span class="apidocSignatureSpan">gulp-git.</span>stash
+            <span class="apidocSignatureSpan">(opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.status">
+            function <span class="apidocSignatureSpan">gulp-git.</span>status
+            <span class="apidocSignatureSpan">(opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.tag">
+            function <span class="apidocSignatureSpan">gulp-git.</span>tag
+            <span class="apidocSignatureSpan">(version, message, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-git.updateSubmodule">
+            function <span class="apidocSignatureSpan">gulp-git.</span>updateSubmodule
+            <span class="apidocSignatureSpan">(opt, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gulp-git" id="apidoc.module.gulp-git">module gulp-git</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.add" id="apidoc.element.gulp-git.add">
+        function <span class="apidocSignatureSpan">gulp-git.</span>add
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (opt) {
+  if (!opt) opt = {};
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var paths = [];
+  var files = [];
+  var fileCwd = process.cwd;
+
+  var write = function(file, enc, cb) {
+    paths.push(file.path);
+    files.push(file);
+    fileCwd = file.cwd;
+    cb();
+  };
+
+  var flush = function(cb) {
+    var cwd = opt.cwd || fileCwd;
+
+    var cmd = &#x27;git add &#x27; + escape(paths) + &#x27; &#x27; + opt.args;
+    var that = this;
+    var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+    exec(cmd, {cwd: cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+      if (err) cb(err);
+      if (!opt.quiet) gutil.log(stdout, stderr);
+      files.forEach(that.push.bind(that));
+      that.emit(&#x27;end&#x27;);
+      cb();
+    });
+  };
+
+  return through.obj(write, flush);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  });
+});
+
+// Run git add
+// src is the file(s) to add (or ./*)
+gulp.task(&#x27;add&#x27;, function(){
+  return gulp.src(&#x27;./git-test/*&#x27;)
+    .pipe(git.<span class="apidocCodeKeywordSpan">add</span>());
+});
+
+// Run git add with options
+gulp.task(&#x27;add&#x27;, function(){
+  return gulp.src(&#x27;./git-test/*&#x27;)
+    .pipe(git.add({args: &#x27;-f -i -p&#x27;}));
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.addRemote" id="apidoc.element.gulp-git.addRemote">
+        function <span class="apidocSignatureSpan">gulp-git.</span>addRemote
+        <span class="apidocSignatureSpan">(remote, url, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addRemote = function (remote, url, opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!url) cb(new Error(&#x27;gulp-git: Repo URL is required git.addRemote(&#x22;origin&#x22;, &#x22;https://github.com/user/repo.git&#x22;)&#x27;));
+  if (!remote) remote = &#x27;origin&#x27;;
+  if (!opt) opt = {};
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git remote add &#x27; + opt.args + &#x27; &#x27; + escape([remote, url]);
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    });
+});
+
+// Run git remote add
+// remote is the remote repo
+// repo is the https url of the repo
+gulp.task(&#x27;addremote&#x27;, function(){
+  git.<span class="apidocCodeKeywordSpan">addRemote</span>(&#x27;origin&#x27;, &#x27;https://github.com/stevelacy/git-test&#x27;,
+function (err) {
+    if (err) throw err;
+  });
+});
+
+// Run git remote remove
+// remote is the remote repo
+gulp.task(&#x27;removeremote&#x27;, function(){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.addSubmodule" id="apidoc.element.gulp-git.addSubmodule">
+        function <span class="apidocSignatureSpan">gulp-git.</span>addSubmodule
+        <span class="apidocSignatureSpan">(url, name, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addSubmodule = function (url, name, opt, cb) {
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!url) cb(new Error(&#x27;gulp-git: Repo URL is required git.submodule.add(&#x22;https://github.com/user/repo.git&#x22;, &#x22;repoName&#x22;)&#x27;));
+  if (!name) name = &#x27;&#x27;;
+  if (!opt) opt = {};
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27;&#x27;;
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git submodule add &#x27; + opt.args + &#x27; &#x27; + url + &#x27; &#x27; + name;
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err &#x26;&#x26; cb) cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    if (cb) cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Git rm a file or folder
+gulp.task(&#x27;rm&#x27;, function(){
+  return gulp.src(&#x27;./gruntfile.js&#x27;)
+    .pipe(git.rm());
+});
+
+gulp.task(&#x27;addSubmodule&#x27;, function(){
+  git.<span class="apidocCodeKeywordSpan">addSubmodule</span>(&#x27;https://github.com/stevelacy/git-test&#x27;, &#x27;git-test&#
+x27;, { args: &#x27;-b master&#x27;});
+});
+
+gulp.task(&#x27;updateSubmodules&#x27;, function(){
+  git.updateSubmodule({ args: &#x27;--init&#x27; });
+});
+
+// Working tree status
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.branch" id="apidoc.element.gulp-git.branch">
+        function <span class="apidocSignatureSpan">gulp-git.</span>branch
+        <span class="apidocSignatureSpan">(branch, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">branch = function (branch, opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!branch) return cb(new Error(&#x27;gulp-git: Branch name is required git.branch(&#x22;name&#x22;)&#x27;));
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git branch &#x27; + opt.args + &#x27; &#x27; + escape([branch]);
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+git.tag(&#x27;v1.1.1&#x27;, &#x27;Version message with signed key&#x27;, {signed: true}, function (err) {
+  if (err) throw err;
+});
+});
+
+// Create a git branch
+gulp.task(&#x27;branch&#x27;, function(){
+git.<span class="apidocCodeKeywordSpan">branch</span>(&#x27;newBranch&#x27;, function (err) {
+  if (err) throw err;
+});
+});
+
+// Checkout a git branch
+gulp.task(&#x27;checkout&#x27;, function(){
+git.checkout(&#x27;branchName&#x27;, function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.catFile" id="apidoc.element.gulp-git.catFile">
+        function <span class="apidocSignatureSpan">gulp-git.</span>catFile
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">catFile = function (opt) {
+  if (!opt) opt = {};
+  if (undefined === opt.stripBOM || null === opt.stripBOM) opt.stripBOM = true;
+  if (undefined === opt.buffer || null === opt.buffer) opt.buffer = true;
+
+<span class="apidocCodeCommentSpan">  /**
+   * transform function of stream {@link https://nodejs.org/docs/latest/api/stream.html#stream_transform_transform_chunk_encoding_callback
+}
+   *
+   * @param {vinyl}    file The file to be transformed.
+   * @param {any}      enc  encoding type.
+   * @param {function} cb   A callback function (optionally with an error argument and data) to be called after the supplied `file
+` has been processed.
+   * @returns {void}
+   */
+</span>  var write = function(file, enc, cb) {
+
+    var hash = file.git &#x26;&#x26; file.git.hash;
+
+    /**
+     * set file contents and send file to stream
+     *
+     * @param {Buffer} contents file contents
+     * @returns {void}
+     */
+    var sendFile = function(contents) {
+      if (contents) {
+        file.contents = contents;
+      }
+      return cb(null, file);
+    };
+
+    if (!hash || /^0+$/.test(hash)) {
+      return sendFile();
+    }
+
+    var catFile = spawn(&#x27;git&#x27;, [&#x27;cat-file&#x27;, &#x27;blob&#x27;, hash], {
+      cwd: file.cwd
+    });
+
+    var contents = catFile.stdout;
+    var that = this;
+
+    readStream(catFile.stderr, function(error) {
+      that.emit(&#x27;error&#x27;, new gutil.PluginError(&#x27;gulp-git&#x27;, &#x27;Command failed: &#x27; + catFile.spawnargs.join(&#x27; &#x27;).trim() + &#x27;\n&#x27; + error
+.toString()));
+    });
+
+    if (opt.stripBOM) {
+      contents = contents.pipe(stripBom());
+    }
+
+    if (opt.buffer) {
+      readStream(contents, sendFile);
+    } else {
+      sendFile(contents);
+    }
+  };
+  var stream = through.obj(write);
+  return stream;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.checkout" id="apidoc.element.gulp-git.checkout">
+        function <span class="apidocSignatureSpan">gulp-git.</span>checkout
+        <span class="apidocSignatureSpan">(branch, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkout = function (branch, opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!branch) throw new Error(&#x27;gulp-git: Branch name is require git.checkout(&#x22;name&#x22;)&#x27;);
+  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.cwd) opt.cwd = process.cwd();
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git checkout &#x27; + opt.args + &#x27; &#x27; + escape([branch]);
+  exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb(null);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+git.branch(&#x27;newBranch&#x27;, function (err) {
+  if (err) throw err;
+});
+});
+
+// Checkout a git branch
+gulp.task(&#x27;checkout&#x27;, function(){
+git.<span class="apidocCodeKeywordSpan">checkout</span>(&#x27;branchName&#x27;, function (err) {
+  if (err) throw err;
+});
+});
+
+// Create and switch to a git branch
+gulp.task(&#x27;checkout&#x27;, function(){
+git.checkout(&#x27;branchName&#x27;, {args:&#x27;-b&#x27;}, function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.checkoutFiles" id="apidoc.element.gulp-git.checkoutFiles">
+        function <span class="apidocSignatureSpan">gulp-git.</span>checkoutFiles
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkoutFiles = function (opt) {
+  if (!opt) opt = {};
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  function checkout(file, enc, cb) {
+    var that = this;
+    var cmd = &#x27;git checkout &#x27; + opt.args + &#x27; &#x27; + escape([file.path]);
+    if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+
+    var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+    exec(cmd, {cwd: file.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+      if (err) return cb(err);
+      if (!opt.quiet) gutil.log(stdout, stderr);
+      that.push(file);
+      cb(null);
+    });
+  }
+
+  // Return a stream
+  return through.obj(checkout);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+If you want to checkout files (e.g. revert them) use git.checkoutFiles:
+
+```js
+gulp.src(&#x27;./*&#x27;)
+  .pipe(git.<span class="apidocCodeKeywordSpan">checkoutFiles</span>());
+```
+
+### git.checkoutFiles(opt)
+`git checkout &#x3c;list of files&#x3e;`
+
+Checkout (e.g. reset) files
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.clean" id="apidoc.element.gulp-git.clean">
+        function <span class="apidocSignatureSpan">gulp-git.</span>clean
+        <span class="apidocSignatureSpan">(paths, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clean = function (paths, opt, cb) {
+  if (!cb) {
+    if (typeof opt === &#x27;function&#x27;) {
+      // passed in 2 arguments
+      cb = opt;
+      if (typeof paths === &#x27;object&#x27;) {
+        opt = paths;
+        paths = &#x27;&#x27;;
+      }
+      else opt = {};
+    }
+    else {
+      // passed in only cb
+      cb = paths;
+      paths = &#x27;&#x27;;
+      opt = {};
+    }
+  }
+
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var cmd = &#x27;git clean &#x27; + opt.args + &#x27; &#x27; + (paths.trim() ? (&#x27; -- &#x27; + escape(paths)) : &#x27;&#x27;);
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  return exec(cmd, { cwd: opt.cwd, maxBuffer: maxBuffer }, function (err, stdout, stderr) {
+    if (err)
+      return cb(err);
+    if (!opt.quiet)
+      gutil.log(stdout, stderr);
+    cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  git.exec({args : &#x27;log --follow index.js&#x27;}, function (err, stdout) {
+    if (err) throw err;
+  });
+});
+
+// Git clean files
+gulp.task(&#x27;clean&#x27;, function() {
+  git.<span class="apidocCodeKeywordSpan">clean</span>({ args: &#x27;-f&#x27; }, function (err) {
+    if(err) throw err;
+  });
+});
+
+// Run gulp&#x27;s default task
+gulp.task(&#x27;default&#x27;,[&#x27;add&#x27;]);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.clone" id="apidoc.element.gulp-git.clone">
+        function <span class="apidocSignatureSpan">gulp-git.</span>clone
+        <span class="apidocSignatureSpan">(remote, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clone = function (remote, opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git clone &#x27; + escape([remote]) + &#x27; &#x27; + opt.args;
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+git.fetch(&#x27;origin&#x27;, &#x27;&#x27;, function (err) {
+  if (err) throw err;
+});
+});
+
+// Clone a remote repo
+gulp.task(&#x27;clone&#x27;, function(){
+git.<span class="apidocCodeKeywordSpan">clone</span>(&#x27;https://github.com/stevelacy/gulp-git&#x27;, function (err) {
+  if (err) throw err;
+});
+});
+
+// Clone remote repo to sub folder ($CWD/sub/folder/git-test)
+gulp.task(&#x27;clonesub&#x27;, function() {
+git.clone(&#x27;https://github.com/stevelacy/git-test&#x27;, {args: &#x27;./sub/folder&#x27;}, function(err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.commit" id="apidoc.element.gulp-git.commit">
+        function <span class="apidocSignatureSpan">gulp-git.</span>commit
+        <span class="apidocSignatureSpan">(message, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">commit = function (message, opt) {
+  if (!opt) opt = {};
+  if (!message || message.length === 0) {
+    if (opt.args.indexOf(&#x27;--amend&#x27;) === -1 &#x26;&#x26; opt.disableMessageRequirement !== true) {
+      throw new Error(&#x27;gulp-git: Commit message is required git.commit(&#x22;commit message&#x22;) or --amend arg must be given&#x27;);
+    }
+  }
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.maxBuffer) opt.maxBuffer = 200 * 1024; // Default buffer value for child_process.exec
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var files = [];
+  var paths = [];
+
+  var write = function(file, enc, cb) {
+    files.push(file);
+    paths.push(path.relative(opt.cwd, file.path).replace(&#x27;\\&#x27;, &#x27;/&#x27;));
+    cb();
+  };
+
+  var messageEntry = function(entry) {
+    return &#x27;-m &#x22;&#x27; + entry + &#x27;&#x22; &#x27;;
+  };
+
+  var flush = function(cb) {
+    var writeStdin = false;
+    var cmd = &#x27;git commit &#x27;;
+
+    if (message &#x26;&#x26; opt.args.indexOf(&#x27;--amend&#x27;) === -1) {
+
+      // Check if the message is multiline
+      if (message &#x26;&#x26; message instanceof Array) {
+
+        if (opt.multiline) {
+          writeStdin = true;
+          message = message.join(&#x27;\n&#x27;);
+        } else {
+          var messageExpanded = &#x27;&#x27;;
+
+          // repeat -m as needed
+          for (var i = 0; i &#x3c; message.length; i++) {
+            messageExpanded += messageEntry(message[i]);
+          }
+          cmd += messageExpanded + opt.args;
+        }
+        if (!opt.disableAppendPaths) {
+          cmd += &#x27; &#x27; + escape(paths);
+        }
+      } else {
+        if (~message.indexOf(&#x27;\n&#x27;)) {
+          writeStdin = true;
+        } else {
+          cmd += &#x27;-m &#x22;&#x27; + message + &#x27;&#x22; &#x27; + opt.args;
+        }
+        if (!opt.disableAppendPaths) {
+          cmd += &#x27; &#x27; + escape(paths);
+        }
+      }
+    } else if (opt.disableMessageRequirement === true) {
+      cmd += opt.args;
+    } else {
+      // When amending, just add the file automatically and do not include the message not the file.
+      // Also, add all the files and avoid lauching the editor (even if --no-editor was added)
+      cmd += &#x27;-a &#x27; + opt.args + (opt.args.indexOf(&#x27;--no-edit&#x27;) === -1 ? &#x27; --no-edit&#x27; : &#x27;&#x27;);
+    }
+    var self = this;
+
+    // If `message` was an array and `opt.multiline` was true
+    // or was a string containing newlines, we append &#x27;-F -&#x27;
+    if (writeStdin) {
+      cmd += &#x27; -F -&#x27;;
+    }
+
+    var execChildProcess = exec(cmd, opt, function(err, stdout, stderr) {
+      if (err &#x26;&#x26; (String(stdout).indexOf(&#x27;no changes added to commit&#x27;) === 0)) return cb(err);
+      if (!opt.quiet) gutil.log(stdout, stderr);
+      files.forEach(self.push.bind(self));
+      self.emit(&#x27;end&#x27;);
+      return cb();
+    });
+
+    if (writeStdin) {
+      execChildProcess.stdin.write(message);
+      execChildProcess.stdin.end();
+    }
+
+    // If the user wants, we&#x27;ll emit data events during exec
+    // they can listen to them with .on(&#x27;data&#x27;,function(data){ });
+    // in their task
+    if (opt.emitData) {
+      execChildProcess.stdout.on(&#x27;data&#x27;, function(data) {
+        self.emit(&#x27;data&#x27;, data);
+      });
+      execChildProcess.stderr.on(&#x27;data&#x27;, function(data) {
+        self.emit(&#x27;data&#x27;, data);
+      });
+    }
+  };
+
+  return through.obj(write, flush);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    .pipe(git.add({args: &#x27;-f -i -p&#x27;}));
+});
+
+// Run git commit
+// src are the files to commit (or ./*)
+gulp.task(&#x27;commit&#x27;, function(){
+  return gulp.src(&#x27;./git-test/*&#x27;)
+    .pipe(git.<span class="apidocCodeKeywordSpan">commit</span>(&#x27;initial commit&#x27;));
+});
+
+// Run git commit with options
+gulp.task(&#x27;commit&#x27;, function(){
+  return gulp.src(&#x27;./git-test/*&#x27;)
+    .pipe(git.commit(&#x27;initial commit&#x27;, {args: &#x27;-A --amend -s&#x27;}));
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.diff" id="apidoc.element.gulp-git.diff">
+        function <span class="apidocSignatureSpan">gulp-git.</span>diff
+        <span class="apidocSignatureSpan">(compare, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">diff = function (compare, opt) {
+  if (!opt) opt = {};
+  if (!opt.cwd) opt.cwd = process.cwd();
+  // https://github.com/gulpjs/vinyl-fs#optionsread
+  if (undefined === opt.read || null === opt.read) opt.read = true;
+  if (undefined === opt.log || null === opt.log) opt.log = true;
+
+  var srcStream = through.obj();
+  var cmd = compare;
+
+  if (!/--diff-filter=/.test(opt.args)) {
+    cmd += &#x27; --diff-filter=ACM&#x27;;
+  }
+  if (opt.args) {
+    cmd += &#x27; &#x27; + opt.args;
+  }
+  exec(&#x27;git diff --raw -z &#x27; + cmd, {cwd: opt.cwd}, function(err, stdout) {
+    if (err) return srcStream.emit(&#x27;error&#x27;, err);
+    var files = getReaslt(stdout);
+
+    if (opt.log) {
+      gutil.log(&#x27;git diff --name-status &#x27; + cmd + &#x27;\n&#x27; + files.map(function(diff) {
+        return diff.status + &#x27;\t&#x27; + diff.dstPath;
+      }).join(&#x27;\n&#x27;));
+    }
+
+    files.forEach(function(diff) {
+      srcStream.write(new Vinyl({
+        path: path.resolve(opt.cwd, diff.dstPath),
+        cwd: opt.cwd,
+        base: opt.base,
+        git: {
+          hash: diff.dstHash,
+          diff: diff
+        }
+      }));
+    });
+    srcStream.end();
+  });
+
+  if (opt.read) {
+    // read file contents when opt.read is `true`
+    return srcStream.pipe(catFile(opt));
+  }
+
+  return srcStream;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* get git diff result as a stream of vinyl `File` objects.
+*
+* @example
+const git = require(&#x27;gulp-git&#x27;);
+const eslint = require(&#x27;gulp-eslint&#x27;);
+git.<span class="apidocCodeKeywordSpan">diff</span>(&#x27;--cached&#x27;, {
+ args: &#x27;-- *.js&#x27;
+})
+.pipe(eslint())
+* @param {string}      compare compare arg for `git diff`
+* @param {diffOptions} opt [diffOptions]{@link module:gulp-git/lib/diff~diffOptions}
+* @returns {stream}    stream of vinyl `File` objects.
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.exec" id="apidoc.element.gulp-git.exec">
+        function <span class="apidocSignatureSpan">gulp-git.</span>exec
+        <span class="apidocSignatureSpan">(opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exec = function (opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = { };
+  if (!opt.log) opt.log = !cb;
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.maxBuffer) opt.maxBuffer = 200 * 1024; // Default buffer value for child_process.exec
+
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var cmd = &#x27;git &#x27; + opt.args;
+  return exec(cmd, {cwd : opt.cwd, maxBuffer: opt.maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err, stderr);
+    if (opt.log &#x26;&#x26; !opt.quiet) gutil.log(cmd + &#x27;\n&#x27; + stdout, stderr);
+    else {
+      if (!opt.quiet) gutil.log(cmd + &#x27; (log : false)&#x27;, stderr);
+    }
+    cb(err, stdout);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+git.status({args: &#x27;--porcelain&#x27;}, function (err, stdout) {
+  if (err) throw err;
+});
+});
+
+// Other actions that do not require a Vinyl
+gulp.task(&#x27;log&#x27;, function(){
+git.<span class="apidocCodeKeywordSpan">exec</span>({args : &#x27;log --follow index.js&#x27;}, function (err, stdout) {
+  if (err) throw err;
+});
+});
+
+// Git clean files
+gulp.task(&#x27;clean&#x27;, function() {
+git.clean({ args: &#x27;-f&#x27; }, function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.fetch" id="apidoc.element.gulp-git.fetch">
+        function <span class="apidocSignatureSpan">gulp-git.</span>fetch
+        <span class="apidocSignatureSpan">(remote, branch, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fetch = function (remote, branch, opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!branch) branch = &#x27;&#x27;;
+  if (!opt) opt = {};
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!remote &#x26;&#x26; opt.args.indexOf(&#x27;--all&#x27;) === -1) remote = &#x27;origin&#x27;;
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git fetch &#x27; + opt.args;
+  var args = [];
+  if (remote)
+    args.push(remote);
+  if (branch)
+    args = args.concat(branch);
+  if (args.length &#x3e; 0)
+    cmd += escape(args);
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (err) throw err;
+  });
+});
+
+// Run git fetch
+// Fetch refs from all remotes
+gulp.task(&#x27;fetch&#x27;, function(){
+  git.<span class="apidocCodeKeywordSpan">fetch</span>(&#x27;&#x27;, &#x27;&#x27;, {args: &#x27;--all&#x27;}, function (err) {
+    if (err) throw err;
+  });
+});
+
+// Run git fetch
+// Fetch refs from origin
+gulp.task(&#x27;fetch&#x27;, function(){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.init" id="apidoc.element.gulp-git.init">
+        function <span class="apidocSignatureSpan">gulp-git.</span>init
+        <span class="apidocSignatureSpan">(opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git init &#x27; + opt.args;
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb();
+  });
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+var gulp = require(&#x27;gulp&#x27;);
+var git = require(&#x27;gulp-git&#x27;);
+
+// Run git init
+// src is the root folder for git to initialize
+gulp.task(&#x27;init&#x27;, function(){
+git.<span class="apidocCodeKeywordSpan">init</span>(function (err) {
+  if (err) throw err;
+});
+});
+
+// Run git init with options
+gulp.task(&#x27;init&#x27;, function(){
+git.init({args: &#x27;--quiet --bare&#x27;}, function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.merge" id="apidoc.element.gulp-git.merge">
+        function <span class="apidocSignatureSpan">gulp-git.</span>merge
+        <span class="apidocSignatureSpan">(branch, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">merge = function (branch, opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!branch) return cb &#x26;&#x26; cb(new Error(&#x27;gulp-git: Branch name is require git.merge(&#x22;name&#x22;)&#x27;));
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git merge &#x27; + opt.args + &#x27; &#x27; + escape([branch]);
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+git.checkout(&#x27;branchName&#x27;, {args:&#x27;-b&#x27;}, function (err) {
+  if (err) throw err;
+});
+});
+
+// Merge branches to master
+gulp.task(&#x27;merge&#x27;, function(){
+git.<span class="apidocCodeKeywordSpan">merge</span>(&#x27;branchName&#x27;, function (err) {
+  if (err) throw err;
+});
+});
+
+// Reset a commit
+gulp.task(&#x27;reset&#x27;, function(){
+git.reset(&#x27;SHA&#x27;, function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.pull" id="apidoc.element.gulp-git.pull">
+        function <span class="apidocSignatureSpan">gulp-git.</span>pull
+        <span class="apidocSignatureSpan">(remote, branch, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pull = function (remote, branch, opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var cmd = &#x27;git pull &#x27; + opt.args;
+  if (typeof remote === &#x27;string&#x27;) {
+    cmd += &#x27; &#x27; + escape(remote);
+  }
+  if (branch &#x26;&#x26; typeof branch === &#x27;string&#x27; || branch &#x26;&#x26; branch[0]) {
+    cmd +=  &#x27; &#x27; + escape([].concat(branch));
+  }
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+});
+
+// Run git pull
+// remote is the remote repo
+// branch is the remote branch to pull from
+gulp.task(&#x27;pull&#x27;, function(){
+git.<span class="apidocCodeKeywordSpan">pull</span>(&#x27;origin&#x27;, &#x27;master&#x27;, {args: &#x27;--rebase&#x27;}, function
+ (err) {
+  if (err) throw err;
+});
+});
+
+// Run git pull from multiple branches
+gulp.task(&#x27;pull&#x27;, function(){
+git.pull(&#x27;origin&#x27;, [&#x27;master&#x27;, &#x27;develop&#x27;], function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.push" id="apidoc.element.gulp-git.push">
+        function <span class="apidocSignatureSpan">gulp-git.</span>push
+        <span class="apidocSignatureSpan">(remote, branch, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">push = function (remote, branch, opt, cb) {
+
+  if (!remote) remote = &#x27;origin&#x27;;
+  if (branch === null) {
+    branch = &#x27;&#x27;;
+  } else if (!branch) {
+    branch = &#x27;master&#x27;;
+  }
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var cmd = &#x27;git push &#x27; + escape([].concat(remote, branch)) + &#x27; &#x27; + opt.args;
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  });
+});
+
+// Run git push
+// remote is the remote repo
+// branch is the remote branch to push to
+gulp.task(&#x27;push&#x27;, function(){
+  git.<span class="apidocCodeKeywordSpan">push</span>(&#x27;origin&#x27;, &#x27;master&#x27;, function (err) {
+    if (err) throw err;
+  });
+});
+
+// Run git push with options
+// branch is the remote branch to push to
+gulp.task(&#x27;push&#x27;, function(){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.removeRemote" id="apidoc.element.gulp-git.removeRemote">
+        function <span class="apidocSignatureSpan">gulp-git.</span>removeRemote
+        <span class="apidocSignatureSpan">(remote, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeRemote = function (remote, opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!remote) cb(new Error(&#x27;gulp-git: remote is required git.removeRemote(&#x22;origin&#x22;)&#x27;));
+  if (!opt) opt = {};
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git remote remove &#x27; + opt.args + &#x27; &#x27; + escape([remote]);
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (err) throw err;
+  });
+});
+
+// Run git remote remove
+// remote is the remote repo
+gulp.task(&#x27;removeremote&#x27;, function(){
+  git.<span class="apidocCodeKeywordSpan">removeRemote</span>(&#x27;origin&#x27;, function (err) {
+    if (err) throw err;
+  });
+});
+
+// Run git push
+// remote is the remote repo
+// branch is the remote branch to push to
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.reset" id="apidoc.element.gulp-git.reset">
+        function <span class="apidocSignatureSpan">gulp-git.</span>reset
+        <span class="apidocSignatureSpan">(commit, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function (commit, opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!commit) commit = &#x27; &#x27;;
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git reset &#x27; + opt.args + &#x27; &#x27; + escape([commit]);
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb();
+  });
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+git.merge(&#x27;branchName&#x27;, function (err) {
+  if (err) throw err;
+});
+});
+
+// Reset a commit
+gulp.task(&#x27;reset&#x27;, function(){
+git.<span class="apidocCodeKeywordSpan">reset</span>(&#x27;SHA&#x27;, function (err) {
+  if (err) throw err;
+});
+});
+
+// Git rm a file or folder
+gulp.task(&#x27;rm&#x27;, function(){
+return gulp.src(&#x27;./gruntfile.js&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.revParse" id="apidoc.element.gulp-git.revParse">
+        function <span class="apidocSignatureSpan">gulp-git.</span>revParse
+        <span class="apidocSignatureSpan">(opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">revParse = function (opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!opt.args) opt.args = &#x27; &#x27;; // it will likely not give you what you want
+  if (!opt.cwd) opt.cwd = process.cwd();
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git rev-parse &#x27; + opt.args;
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err);
+    if (stdout) stdout = stdout.trim(); // Trim trailing cr-lf
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb(err, stdout); // return stdout to the user
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+git.reset(&#x27;HEAD&#x27; {args:&#x27;--hard&#x27;}, function (err) {
+  //if (err) ...
+});
+```
+
+### git.<span class="apidocCodeKeywordSpan">revParse</span>(opt, cb)
+`git rev-parse &#x3c;options&#x3e;`
+
+Get details about the repository
+
+`opt`: Object (optional) `{args: &#x27;options&#x27;, cwd: &#x27;/cwd/path&#x27;, quiet: true, maxBuffer: 200 * 1024}`
+
+`cb`: function, passed err if any and command stdout
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.rm" id="apidoc.element.gulp-git.rm">
+        function <span class="apidocSignatureSpan">gulp-git.</span>rm
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rm = function (opt) {
+  if (!opt) opt = {};
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var paths = [];
+  var files = [];
+  var fileCwd = process.cwd;
+  var write = function(file, enc, cb) {
+    paths.push(file.path);
+    files.push(file);
+    fileCwd = file.cwd;
+    cb();
+  };
+
+  var flush = function(cb) {
+    var cwd = opt.cwd || fileCwd;
+
+    var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+    var cmd = &#x27;git rm &#x27; + escape(paths) + &#x27; &#x27; + opt.args;
+    var that = this;
+    exec(cmd, {cwd: cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+      if (err) cb(err);
+      if (!opt.quiet) gutil.log(stdout, stderr);
+      files.forEach(that.push.bind(that));
+      cb();
+    });
+  };
+
+  return through.obj(write, flush);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (err) throw err;
+  });
+});
+
+// Git rm a file or folder
+gulp.task(&#x27;rm&#x27;, function(){
+  return gulp.src(&#x27;./gruntfile.js&#x27;)
+    .pipe(git.<span class="apidocCodeKeywordSpan">rm</span>());
+});
+
+gulp.task(&#x27;addSubmodule&#x27;, function(){
+  git.addSubmodule(&#x27;https://github.com/stevelacy/git-test&#x27;, &#x27;git-test&#x27;, { args: &#x27;-b master&#x27;});
+});
+
+gulp.task(&#x27;updateSubmodules&#x27;, function(){
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.stash" id="apidoc.element.gulp-git.stash">
+        function <span class="apidocSignatureSpan">gulp-git.</span>stash
+        <span class="apidocSignatureSpan">(opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stash = function (opt, cb) {
+
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!opt.args) opt.args = &#x27;save --include-untracked &#x22;gulp-stash&#x22;&#x27;;
+  if (!opt.cwd) opt.cwd = process.cwd();
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git stash &#x27; + opt.args;
+  exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    cb(null);
+  });
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.status" id="apidoc.element.gulp-git.status">
+        function <span class="apidocSignatureSpan">gulp-git.</span>status
+        <span class="apidocSignatureSpan">(opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">status = function (opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.maxBuffer) opt.maxBuffer = 200 * 1024; // Default buffer value for child_process.exec
+
+  var cmd = &#x27;git status &#x27; + opt.args;
+  return exec(cmd, {cwd : opt.cwd, maxBuffer: opt.maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err, stderr);
+    if (!opt.quiet) gutil.log(cmd + &#x27;\n&#x27; + stdout, stderr);
+    if (cb) cb(err, stdout);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+gulp.task(&#x27;updateSubmodules&#x27;, function(){
+git.updateSubmodule({ args: &#x27;--init&#x27; });
+});
+
+// Working tree status
+gulp.task(&#x27;status&#x27;, function(){
+git.<span class="apidocCodeKeywordSpan">status</span>({args: &#x27;--porcelain&#x27;}, function (err, stdout) {
+  if (err) throw err;
+});
+});
+
+// Other actions that do not require a Vinyl
+gulp.task(&#x27;log&#x27;, function(){
+git.exec({args : &#x27;log --follow index.js&#x27;}, function (err, stdout) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.tag" id="apidoc.element.gulp-git.tag">
+        function <span class="apidocSignatureSpan">gulp-git.</span>tag
+        <span class="apidocSignatureSpan">(version, message, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">tag = function (version, message, opt, cb) {
+  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+    // optional options
+    cb = opt;
+    opt = {};
+  }
+  if (!cb &#x26;&#x26; typeof version === &#x27;function&#x27;) {
+    cb = version;
+    version = &#x27;&#x27;;
+    message = &#x27;&#x27;;
+  }
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!message) opt.lightWeight = true; else message = escape([message]);
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var signedarg = opt.signed ? &#x27; -s &#x27; : &#x27; -a &#x27;;
+
+  var cmd = &#x27;git tag&#x27;;
+  if (version !== &#x27;&#x27;) {
+    if (!opt.lightWeight) {
+      cmd += &#x27; &#x27; + signedarg + &#x27; -m &#x27; + message + &#x27; &#x27;;
+    }
+    cmd += opt.args + &#x27; &#x27; + escape([version]);
+  }
+  var templ = gutil.template(cmd, {file: message});
+  return exec(templ, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err) return cb(err);
+    if (!opt.quiet &#x26;&#x26; version !== &#x27;&#x27;) gutil.log(stdout, stderr);
+    if (version === &#x27;&#x27;) {
+      stdout = stdout.split(&#x27;\n&#x27;);
+    }
+    return cb(null, stdout);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+git.clone(&#x27;https://github.com/stevelacy/git-test&#x27;, {args: &#x27;./sub/folder&#x27;}, function(err) {
+  // handle err
+});
+});
+
+// Tag the repo with a version
+gulp.task(&#x27;tag&#x27;, function(){
+git.<span class="apidocCodeKeywordSpan">tag</span>(&#x27;v1.1.1&#x27;, &#x27;Version message&#x27;, function (err) {
+  if (err) throw err;
+});
+});
+
+// Tag the repo with a version and empty message
+gulp.task(&#x27;tag&#x27;, function(){
+git.tag(&#x27;v1.1.1&#x27;, &#x27;&#x27;, function (err) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-git.updateSubmodule" id="apidoc.element.gulp-git.updateSubmodule">
+        function <span class="apidocSignatureSpan">gulp-git.</span>updateSubmodule
+        <span class="apidocSignatureSpan">(opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">updateSubmodule = function (opt, cb) {
+  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!opt) opt = {};
+  if (!opt.cwd) opt.cwd = process.cwd();
+  if (!opt.args) opt.args = &#x27; &#x27;;
+
+  var maxBuffer = opt.maxBuffer || 200 * 1024;
+
+  var cmd = &#x27;git submodule update &#x27; + opt.args;
+  return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
+    if (err &#x26;&#x26; cb) cb(err);
+    if (!opt.quiet) gutil.log(stdout, stderr);
+    if (cb) cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+
+gulp.task(&#x27;addSubmodule&#x27;, function(){
+git.addSubmodule(&#x27;https://github.com/stevelacy/git-test&#x27;, &#x27;git-test&#x27;, { args: &#x27;-b master&#x27;});
+});
+
+gulp.task(&#x27;updateSubmodules&#x27;, function(){
+git.<span class="apidocCodeKeywordSpan">updateSubmodule</span>({ args: &#x27;--init&#x27; });
+});
+
+// Working tree status
+gulp.task(&#x27;status&#x27;, function(){
+git.status({args: &#x27;--porcelain&#x27;}, function (err, stdout) {
+  if (err) throw err;
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>

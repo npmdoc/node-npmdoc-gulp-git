@@ -1,0 +1,35 @@
+<svg height="510" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="510" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">  1.  2017-04-02 14:39:55 +0000     1077 byte  LICENSE</tspan>
+<tspan x="10" y="42">  2.  2017-04-02 14:39:55 +0000    16697 byte  README.md</tspan>
+<tspan x="10" y="58">  3.  2017-04-02 14:39:55 +0000     2014 byte  index.js</tspan>
+<tspan x="10" y="74">  4.  2017-04-02 14:39:55 +0000      933 byte  lib/add.js</tspan>
+<tspan x="10" y="90">  5.  2017-04-02 14:39:55 +0000      892 byte  lib/addRemote.js</tspan>
+<tspan x="10" y="106">  6.  2017-04-02 14:39:55 +0000      757 byte  lib/addSubmodule.js</tspan>
+<tspan x="10" y="122">  7.  2017-04-02 14:39:55 +0000      911 byte  lib/branch.js</tspan>
+<tspan x="10" y="138">  8.  2017-04-02 14:39:55 +0000     2844 byte  lib/catFile.js</tspan>
+<tspan x="10" y="154">  9.  2017-04-02 14:39:55 +0000      818 byte  lib/checkout.js</tspan>
+<tspan x="10" y="170"> 10.  2017-04-02 14:39:55 +0000      773 byte  lib/checkoutFiles.js</tspan>
+<tspan x="10" y="186"> 11.  2017-04-02 14:39:55 +0000      907 byte  lib/clean.js</tspan>
+<tspan x="10" y="202"> 12.  2017-04-02 14:39:55 +0000      729 byte  lib/clone.js</tspan>
+<tspan x="10" y="218"> 13.  2017-04-02 14:39:55 +0000     3419 byte  lib/commit.js</tspan>
+<tspan x="10" y="234"> 14.  2017-04-02 14:39:55 +0000     3380 byte  lib/diff.js</tspan>
+<tspan x="10" y="250"> 15.  2017-04-02 14:39:55 +0000      860 byte  lib/exec.js</tspan>
+<tspan x="10" y="266"> 16.  2017-04-02 14:39:55 +0000      958 byte  lib/fetch.js</tspan>
+<tspan x="10" y="282"> 17.  2017-04-02 14:39:55 +0000      654 byte  lib/init.js</tspan>
+<tspan x="10" y="298"> 18.  2017-04-02 14:39:55 +0000      826 byte  lib/merge.js</tspan>
+<tspan x="10" y="314"> 19.  2017-04-02 14:39:55 +0000      902 byte  lib/pull.js</tspan>
+<tspan x="10" y="330"> 20.  2017-04-02 14:39:55 +0000      857 byte  lib/push.js</tspan>
+<tspan x="10" y="346"> 21.  2017-04-02 14:39:55 +0000      819 byte  lib/removeRemote.js</tspan>
+<tspan x="10" y="362"> 22.  2017-04-02 14:39:55 +0000      759 byte  lib/reset.js</tspan>
+<tspan x="10" y="378"> 23.  2017-04-02 14:39:55 +0000     1108 byte  lib/revParse.js</tspan>
+<tspan x="10" y="394"> 24.  2017-04-02 14:39:55 +0000      907 byte  lib/rm.js</tspan>
+<tspan x="10" y="410"> 25.  2017-04-02 14:39:55 +0000      689 byte  lib/stash.js</tspan>
+<tspan x="10" y="426"> 26.  2017-04-02 14:39:55 +0000      749 byte  lib/status.js</tspan>
+<tspan x="10" y="442"> 27.  2017-04-02 14:39:55 +0000     1249 byte  lib/tag.js</tspan>
+<tspan x="10" y="458"> 28.  2017-04-02 14:39:55 +0000      573 byte  lib/updateSubmodule.js</tspan>
+<tspan x="10" y="474"> 29.  2017-04-02 14:39:55 +0000     2734 byte  package.json</tspan>
+<tspan x="10" y="490"> 30.  2017-04-02 14:39:55 +0000    50795 byte  .</tspan>
+</text>
+</svg>
