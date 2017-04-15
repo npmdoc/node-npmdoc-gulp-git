@@ -1,11 +1,13 @@
 # api documentation for  [gulp-git (v2.1.0)](http://github.com/stevelacy/gulp-git)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-git.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-git) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-git.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-git)
 #### Git plugin for gulp (gulpjs.com)
 
-[![NPM](https://nodei.co/npm/gulp-git.png?downloads=true)](https://www.npmjs.com/package/gulp-git)
+[![NPM](https://nodei.co/npm/gulp-git.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/gulp-git)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-gulp-git/build/screen-capture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-gulp-git_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-gulp-git/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-gulp-git/build/screenCapture.buildCi.browser.apidoc.html.png)](https://npmdoc.github.io/node-npmdoc-gulp-git/build/apidoc.html)
 
-![package-listing](https://npmdoc.github.io/node-npmdoc-gulp-git/build/screen-capture.npmPackageListing.svg)
+![npmPackageListing](https://npmdoc.github.io/node-npmdoc-gulp-git/build/screenCapture.npmPackageListing.svg)
+
+![npmPackageDependencyTree](https://npmdoc.github.io/node-npmdoc-gulp-git/build/screenCapture.npmPackageDependencyTree.svg)
 
 
 
@@ -57,13 +59,11 @@
     "main": "./index.js",
     "maintainers": [
         {
-            "name": "stevelacy",
-            "email": "me@slacy.me"
+            "name": "stevelacy"
         }
     ],
     "name": "gulp-git",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com/stevelacy/gulp-git.git"
@@ -750,23 +750,7 @@ diff = function (compare, opt) {
 ```
 - example usage
 ```shell
-...
-
-/**
-* get git diff result as a stream of vinyl 'File' objects.
-*
-* @example
-const git = require('gulp-git');
-const eslint = require('gulp-eslint');
-git.diff('--cached', {
- args: '-- *.js'
-})
-.pipe(eslint())
-* @param {string}      compare compare arg for 'git diff'
-* @param {diffOptions} opt [diffOptions]{@link module:gulp-git/lib/diff~diffOptions}
-* @returns {stream}    stream of vinyl 'File' objects.
-*/
-...
+n/a
 ```
 
 #### <a name="apidoc.element.gulp-git.exec"></a>[function <span class="apidocSignatureSpan">gulp-git.</span>exec (opt, cb)](#apidoc.element.gulp-git.exec)
