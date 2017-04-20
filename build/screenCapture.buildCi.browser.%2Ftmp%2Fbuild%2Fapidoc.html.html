@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="http://github.com/stevelacy/gulp-git"
-
-    >gulp-git (v2.1.0)</a>
+    <a href="http://github.com/stevelacy/gulp-git">gulp-git (v2.1.0)</a>
 </h1>
 <h4>Git plugin for gulp (gulpjs.com)</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.gulp-git">module gulp-git</a><ol>
 
@@ -303,7 +296,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">add = function (opt) {
   if (!opt) opt = {};
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
   var paths = [];
   var files = [];
@@ -319,7 +312,7 @@
   var flush = function(cb) {
     var cwd = opt.cwd || fileCwd;
 
-    var cmd = &#x27;git add &#x27; + escape(paths) + &#x27; &#x27; + opt.args;
+    var cmd = 'git add ' + escape(paths) + ' ' + opt.args;
     var that = this;
     var maxBuffer = opt.maxBuffer || 200 * 1024;
 
@@ -327,7 +320,7 @@
       if (err) cb(err);
       if (!opt.quiet) gutil.log(stdout, stderr);
       files.forEach(that.push.bind(that));
-      that.emit(&#x27;end&#x27;);
+      that.emit('end');
       cb();
     });
   };
@@ -340,15 +333,15 @@
 
 // Run git add
 // src is the file(s) to add (or ./*)
-gulp.task(&#x27;add&#x27;, function(){
-  return gulp.src(&#x27;./git-test/*&#x27;)
+gulp.task('add', function(){
+  return gulp.src('./git-test/*')
     .pipe(git.<span class="apidocCodeKeywordSpan">add</span>());
 });
 
 // Run git add with options
-gulp.task(&#x27;add&#x27;, function(){
-  return gulp.src(&#x27;./git-test/*&#x27;)
-    .pipe(git.add({args: &#x27;-f -i -p&#x27;}));
+gulp.task('add', function(){
+  return gulp.src('./git-test/*')
+    .pipe(git.add({args: '-f -i -p'}));
 });
 ...</pre></li>
     </ul>
@@ -363,21 +356,21 @@ gulp.task(&#x27;add&#x27;, function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">addRemote = function (remote, url, opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
-  if (!url) cb(new Error(&#x27;gulp-git: Repo URL is required git.addRemote(&#x22;origin&#x22;, &#x22;https://github.com/user/repo.git&#x22;)&#x27;));
-  if (!remote) remote = &#x27;origin&#x27;;
+  if (!cb || typeof cb !== 'function') cb = function () {};
+  if (!url) cb(new Error('gulp-git: Repo URL is required git.addRemote("origin", "https://github.com/user/repo.git")'));
+  if (!remote) remote = 'origin';
   if (!opt) opt = {};
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git remote add &#x27; + opt.args + &#x27; &#x27; + escape([remote, url]);
+  var cmd = 'git remote add ' + opt.args + ' ' + escape([remote, url]);
   return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
     if (err) cb(err);
     if (!opt.quiet) gutil.log(stdout, stderr);
@@ -391,8 +384,8 @@ gulp.task(&#x27;add&#x27;, function(){
 // Run git remote add
 // remote is the remote repo
 // repo is the https url of the repo
-gulp.task(&#x27;addremote&#x27;, function(){
-  git.<span class="apidocCodeKeywordSpan">addRemote</span>(&#x27;origin&#x27;, &#x27;https://github.com/stevelacy/git-test&#x27;,
+gulp.task('addremote', function(){
+  git.<span class="apidocCodeKeywordSpan">addRemote</span>('origin', 'https://github.com/stevelacy/git-test',
 function (err) {
     if (err) throw err;
   });
@@ -400,7 +393,7 @@ function (err) {
 
 // Run git remote remove
 // remote is the remote repo
-gulp.task(&#x27;removeremote&#x27;, function(){
+gulp.task('removeremote', function(){
 ...</pre></li>
     </ul>
 
@@ -414,36 +407,36 @@ gulp.task(&#x27;removeremote&#x27;, function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">addSubmodule = function (url, name, opt, cb) {
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
-  if (!url) cb(new Error(&#x27;gulp-git: Repo URL is required git.submodule.add(&#x22;https://github.com/user/repo.git&#x22;, &#x22;repoName&#x22;)&#x27;));
-  if (!name) name = &#x27;&#x27;;
+  if (!cb || typeof cb !== 'function') cb = function () {};
+  if (!url) cb(new Error('gulp-git: Repo URL is required git.submodule.add("https://github.com/user/repo.git", "repoName")'));
+  if (!name) name = '';
   if (!opt) opt = {};
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27;&#x27;;
+  if (!opt.args) opt.args = '';
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git submodule add &#x27; + opt.args + &#x27; &#x27; + url + &#x27; &#x27; + name;
+  var cmd = 'git submodule add ' + opt.args + ' ' + url + ' ' + name;
   return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
-    if (err &#x26;&#x26; cb) cb(err);
+    if (err &amp;&amp; cb) cb(err);
     if (!opt.quiet) gutil.log(stdout, stderr);
     if (cb) cb();
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 // Git rm a file or folder
-gulp.task(&#x27;rm&#x27;, function(){
-  return gulp.src(&#x27;./gruntfile.js&#x27;)
+gulp.task('rm', function(){
+  return gulp.src('./gruntfile.js')
     .pipe(git.rm());
 });
 
-gulp.task(&#x27;addSubmodule&#x27;, function(){
-  git.<span class="apidocCodeKeywordSpan">addSubmodule</span>(&#x27;https://github.com/stevelacy/git-test&#x27;, &#x27;git-test&#
-x27;, { args: &#x27;-b master&#x27;});
+gulp.task('addSubmodule', function(){
+  git.<span class="apidocCodeKeywordSpan">addSubmodule</span>('https://github.com/stevelacy/git-test', 'git-test&amp;#
+x27;, { args: '-b master'});
 });
 
-gulp.task(&#x27;updateSubmodules&#x27;, function(){
-  git.updateSubmodule({ args: &#x27;--init&#x27; });
+gulp.task('updateSubmodules', function(){
+  git.updateSubmodule({ args: '--init' });
 });
 
 // Working tree status
@@ -460,20 +453,20 @@ gulp.task(&#x27;updateSubmodules&#x27;, function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">branch = function (branch, opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
-  if (!branch) return cb(new Error(&#x27;gulp-git: Branch name is required git.branch(&#x22;name&#x22;)&#x27;));
+  if (!branch) return cb(new Error('gulp-git: Branch name is required git.branch("name")'));
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git branch &#x27; + opt.args + &#x27; &#x27; + escape([branch]);
+  var cmd = 'git branch ' + opt.args + ' ' + escape([branch]);
   return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
     if (err) return cb(err);
     if (!opt.quiet) gutil.log(stdout, stderr);
@@ -481,21 +474,21 @@ gulp.task(&#x27;updateSubmodules&#x27;, function(){
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-git.tag(&#x27;v1.1.1&#x27;, &#x27;Version message with signed key&#x27;, {signed: true}, function (err) {
+git.tag('v1.1.1', 'Version message with signed key', {signed: true}, function (err) {
   if (err) throw err;
 });
 });
 
 // Create a git branch
-gulp.task(&#x27;branch&#x27;, function(){
-git.<span class="apidocCodeKeywordSpan">branch</span>(&#x27;newBranch&#x27;, function (err) {
+gulp.task('branch', function(){
+git.<span class="apidocCodeKeywordSpan">branch</span>('newBranch', function (err) {
   if (err) throw err;
 });
 });
 
 // Checkout a git branch
-gulp.task(&#x27;checkout&#x27;, function(){
-git.checkout(&#x27;branchName&#x27;, function (err) {
+gulp.task('checkout', function(){
+git.checkout('branchName', function (err) {
 ...</pre></li>
     </ul>
 
@@ -525,7 +518,7 @@ git.checkout(&#x27;branchName&#x27;, function (err) {
    */
 </span>  var write = function(file, enc, cb) {
 
-    var hash = file.git &#x26;&#x26; file.git.hash;
+    var hash = file.git &amp;&amp; file.git.hash;
 
     /**
      * set file contents and send file to stream
@@ -544,7 +537,7 @@ git.checkout(&#x27;branchName&#x27;, function (err) {
       return sendFile();
     }
 
-    var catFile = spawn(&#x27;git&#x27;, [&#x27;cat-file&#x27;, &#x27;blob&#x27;, hash], {
+    var catFile = spawn('git', ['cat-file', 'blob', hash], {
       cwd: file.cwd
     });
 
@@ -552,7 +545,7 @@ git.checkout(&#x27;branchName&#x27;, function (err) {
     var that = this;
 
     readStream(catFile.stderr, function(error) {
-      that.emit(&#x27;error&#x27;, new gutil.PluginError(&#x27;gulp-git&#x27;, &#x27;Command failed: &#x27; + catFile.spawnargs.join(&#x27; &#x27;).trim() + &#x27;\n&#x27; + error
+      that.emit('error', new gutil.PluginError('gulp-git', 'Command failed: ' + catFile.spawnargs.join(' ').trim() + '\n' + error
 .toString()));
     });
 
@@ -582,20 +575,20 @@ git.checkout(&#x27;branchName&#x27;, function (err) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">checkout = function (branch, opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
-  if (!branch) throw new Error(&#x27;gulp-git: Branch name is require git.checkout(&#x22;name&#x22;)&#x27;);
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!branch) throw new Error('gulp-git: Branch name is require git.checkout("name")');
+  if (!opt.args) opt.args = ' ';
   if (!opt.cwd) opt.cwd = process.cwd();
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git checkout &#x27; + opt.args + &#x27; &#x27; + escape([branch]);
+  var cmd = 'git checkout ' + opt.args + ' ' + escape([branch]);
   exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
     if (err) return cb(err);
     if (!opt.quiet) gutil.log(stdout, stderr);
@@ -603,21 +596,21 @@ git.checkout(&#x27;branchName&#x27;, function (err) {
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-git.branch(&#x27;newBranch&#x27;, function (err) {
+git.branch('newBranch', function (err) {
   if (err) throw err;
 });
 });
 
 // Checkout a git branch
-gulp.task(&#x27;checkout&#x27;, function(){
-git.<span class="apidocCodeKeywordSpan">checkout</span>(&#x27;branchName&#x27;, function (err) {
+gulp.task('checkout', function(){
+git.<span class="apidocCodeKeywordSpan">checkout</span>('branchName', function (err) {
   if (err) throw err;
 });
 });
 
 // Create and switch to a git branch
-gulp.task(&#x27;checkout&#x27;, function(){
-git.checkout(&#x27;branchName&#x27;, {args:&#x27;-b&#x27;}, function (err) {
+gulp.task('checkout', function(){
+git.checkout('branchName', {args:'-b'}, function (err) {
 ...</pre></li>
     </ul>
 
@@ -632,12 +625,12 @@ git.checkout(&#x27;branchName&#x27;, {args:&#x27;-b&#x27;}, function (err) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">checkoutFiles = function (opt) {
   if (!opt) opt = {};
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
   function checkout(file, enc, cb) {
     var that = this;
-    var cmd = &#x27;git checkout &#x27; + opt.args + &#x27; &#x27; + escape([file.path]);
-    if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+    var cmd = 'git checkout ' + opt.args + ' ' + escape([file.path]);
+    if (!cb || typeof cb !== 'function') cb = function () {};
 
     var maxBuffer = opt.maxBuffer || 200 * 1024;
 
@@ -659,12 +652,12 @@ git.checkout(&#x27;branchName&#x27;, {args:&#x27;-b&#x27;}, function (err) {
 If you want to checkout files (e.g. revert them) use git.checkoutFiles:
 
 ```js
-gulp.src(&#x27;./*&#x27;)
+gulp.src('./*')
   .pipe(git.<span class="apidocCodeKeywordSpan">checkoutFiles</span>());
 ```
 
 ### git.checkoutFiles(opt)
-`git checkout &#x3c;list of files&#x3e;`
+`git checkout &lt;list of files&gt;`
 
 Checkout (e.g. reset) files
 ...</pre></li>
@@ -681,27 +674,27 @@ Checkout (e.g. reset) files
     <ul>
     <li>description and source-code<pre class="apidocCodePre">clean = function (paths, opt, cb) {
   if (!cb) {
-    if (typeof opt === &#x27;function&#x27;) {
+    if (typeof opt === 'function') {
       // passed in 2 arguments
       cb = opt;
-      if (typeof paths === &#x27;object&#x27;) {
+      if (typeof paths === 'object') {
         opt = paths;
-        paths = &#x27;&#x27;;
+        paths = '';
       }
       else opt = {};
     }
     else {
       // passed in only cb
       cb = paths;
-      paths = &#x27;&#x27;;
+      paths = '';
       opt = {};
     }
   }
 
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
-  var cmd = &#x27;git clean &#x27; + opt.args + &#x27; &#x27; + (paths.trim() ? (&#x27; -- &#x27; + escape(paths)) : &#x27;&#x27;);
+  var cmd = 'git clean ' + opt.args + ' ' + (paths.trim() ? (' -- ' + escape(paths)) : '');
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
@@ -714,20 +707,20 @@ Checkout (e.g. reset) files
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  git.exec({args : &#x27;log --follow index.js&#x27;}, function (err, stdout) {
+  git.exec({args : 'log --follow index.js'}, function (err, stdout) {
     if (err) throw err;
   });
 });
 
 // Git clean files
-gulp.task(&#x27;clean&#x27;, function() {
-  git.<span class="apidocCodeKeywordSpan">clean</span>({ args: &#x27;-f&#x27; }, function (err) {
+gulp.task('clean', function() {
+  git.<span class="apidocCodeKeywordSpan">clean</span>({ args: '-f' }, function (err) {
     if(err) throw err;
   });
 });
 
-// Run gulp&#x27;s default task
-gulp.task(&#x27;default&#x27;,[&#x27;add&#x27;]);
+// Run gulp's default task
+gulp.task('default',['add']);
 ```
 ...</pre></li>
     </ul>
@@ -742,19 +735,19 @@ gulp.task(&#x27;default&#x27;,[&#x27;add&#x27;]);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">clone = function (remote, opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git clone &#x27; + escape([remote]) + &#x27; &#x27; + opt.args;
+  var cmd = 'git clone ' + escape([remote]) + ' ' + opt.args;
   return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
     if (err) return cb(err);
     if (!opt.quiet) gutil.log(stdout, stderr);
@@ -762,21 +755,21 @@ gulp.task(&#x27;default&#x27;,[&#x27;add&#x27;]);
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-git.fetch(&#x27;origin&#x27;, &#x27;&#x27;, function (err) {
+git.fetch('origin', '', function (err) {
   if (err) throw err;
 });
 });
 
 // Clone a remote repo
-gulp.task(&#x27;clone&#x27;, function(){
-git.<span class="apidocCodeKeywordSpan">clone</span>(&#x27;https://github.com/stevelacy/gulp-git&#x27;, function (err) {
+gulp.task('clone', function(){
+git.<span class="apidocCodeKeywordSpan">clone</span>('https://github.com/stevelacy/gulp-git', function (err) {
   if (err) throw err;
 });
 });
 
 // Clone remote repo to sub folder ($CWD/sub/folder/git-test)
-gulp.task(&#x27;clonesub&#x27;, function() {
-git.clone(&#x27;https://github.com/stevelacy/git-test&#x27;, {args: &#x27;./sub/folder&#x27;}, function(err) {
+gulp.task('clonesub', function() {
+git.clone('https://github.com/stevelacy/git-test', {args: './sub/folder'}, function(err) {
 ...</pre></li>
     </ul>
 
@@ -792,59 +785,59 @@ git.clone(&#x27;https://github.com/stevelacy/git-test&#x27;, {args: &#x27;./sub/
     <li>description and source-code<pre class="apidocCodePre">commit = function (message, opt) {
   if (!opt) opt = {};
   if (!message || message.length === 0) {
-    if (opt.args.indexOf(&#x27;--amend&#x27;) === -1 &#x26;&#x26; opt.disableMessageRequirement !== true) {
-      throw new Error(&#x27;gulp-git: Commit message is required git.commit(&#x22;commit message&#x22;) or --amend arg must be given&#x27;);
+    if (opt.args.indexOf('--amend') === -1 &amp;&amp; opt.disableMessageRequirement !== true) {
+      throw new Error('gulp-git: Commit message is required git.commit("commit message") or --amend arg must be given');
     }
   }
   if (!opt.cwd) opt.cwd = process.cwd();
   if (!opt.maxBuffer) opt.maxBuffer = 200 * 1024; // Default buffer value for child_process.exec
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
   var files = [];
   var paths = [];
 
   var write = function(file, enc, cb) {
     files.push(file);
-    paths.push(path.relative(opt.cwd, file.path).replace(&#x27;\\&#x27;, &#x27;/&#x27;));
+    paths.push(path.relative(opt.cwd, file.path).replace('\\', '/'));
     cb();
   };
 
   var messageEntry = function(entry) {
-    return &#x27;-m &#x22;&#x27; + entry + &#x27;&#x22; &#x27;;
+    return '-m "' + entry + '" ';
   };
 
   var flush = function(cb) {
     var writeStdin = false;
-    var cmd = &#x27;git commit &#x27;;
+    var cmd = 'git commit ';
 
-    if (message &#x26;&#x26; opt.args.indexOf(&#x27;--amend&#x27;) === -1) {
+    if (message &amp;&amp; opt.args.indexOf('--amend') === -1) {
 
       // Check if the message is multiline
-      if (message &#x26;&#x26; message instanceof Array) {
+      if (message &amp;&amp; message instanceof Array) {
 
         if (opt.multiline) {
           writeStdin = true;
-          message = message.join(&#x27;\n&#x27;);
+          message = message.join('\n');
         } else {
-          var messageExpanded = &#x27;&#x27;;
+          var messageExpanded = '';
 
           // repeat -m as needed
-          for (var i = 0; i &#x3c; message.length; i++) {
+          for (var i = 0; i &lt; message.length; i++) {
             messageExpanded += messageEntry(message[i]);
           }
           cmd += messageExpanded + opt.args;
         }
         if (!opt.disableAppendPaths) {
-          cmd += &#x27; &#x27; + escape(paths);
+          cmd += ' ' + escape(paths);
         }
       } else {
-        if (~message.indexOf(&#x27;\n&#x27;)) {
+        if (~message.indexOf('\n')) {
           writeStdin = true;
         } else {
-          cmd += &#x27;-m &#x22;&#x27; + message + &#x27;&#x22; &#x27; + opt.args;
+          cmd += '-m "' + message + '" ' + opt.args;
         }
         if (!opt.disableAppendPaths) {
-          cmd += &#x27; &#x27; + escape(paths);
+          cmd += ' ' + escape(paths);
         }
       }
     } else if (opt.disableMessageRequirement === true) {
@@ -852,21 +845,21 @@ git.clone(&#x27;https://github.com/stevelacy/git-test&#x27;, {args: &#x27;./sub/
     } else {
       // When amending, just add the file automatically and do not include the message not the file.
       // Also, add all the files and avoid lauching the editor (even if --no-editor was added)
-      cmd += &#x27;-a &#x27; + opt.args + (opt.args.indexOf(&#x27;--no-edit&#x27;) === -1 ? &#x27; --no-edit&#x27; : &#x27;&#x27;);
+      cmd += '-a ' + opt.args + (opt.args.indexOf('--no-edit') === -1 ? ' --no-edit' : '');
     }
     var self = this;
 
     // If `message` was an array and `opt.multiline` was true
-    // or was a string containing newlines, we append &#x27;-F -&#x27;
+    // or was a string containing newlines, we append '-F -'
     if (writeStdin) {
-      cmd += &#x27; -F -&#x27;;
+      cmd += ' -F -';
     }
 
     var execChildProcess = exec(cmd, opt, function(err, stdout, stderr) {
-      if (err &#x26;&#x26; (String(stdout).indexOf(&#x27;no changes added to commit&#x27;) === 0)) return cb(err);
+      if (err &amp;&amp; (String(stdout).indexOf('no changes added to commit') === 0)) return cb(err);
       if (!opt.quiet) gutil.log(stdout, stderr);
       files.forEach(self.push.bind(self));
-      self.emit(&#x27;end&#x27;);
+      self.emit('end');
       return cb();
     });
 
@@ -875,15 +868,15 @@ git.clone(&#x27;https://github.com/stevelacy/git-test&#x27;, {args: &#x27;./sub/
       execChildProcess.stdin.end();
     }
 
-    // If the user wants, we&#x27;ll emit data events during exec
-    // they can listen to them with .on(&#x27;data&#x27;,function(data){ });
+    // If the user wants, we'll emit data events during exec
+    // they can listen to them with .on('data',function(data){ });
     // in their task
     if (opt.emitData) {
-      execChildProcess.stdout.on(&#x27;data&#x27;, function(data) {
-        self.emit(&#x27;data&#x27;, data);
+      execChildProcess.stdout.on('data', function(data) {
+        self.emit('data', data);
       });
-      execChildProcess.stderr.on(&#x27;data&#x27;, function(data) {
-        self.emit(&#x27;data&#x27;, data);
+      execChildProcess.stderr.on('data', function(data) {
+        self.emit('data', data);
       });
     }
   };
@@ -891,20 +884,20 @@ git.clone(&#x27;https://github.com/stevelacy/git-test&#x27;, {args: &#x27;./sub/
   return through.obj(write, flush);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    .pipe(git.add({args: &#x27;-f -i -p&#x27;}));
+    .pipe(git.add({args: '-f -i -p'}));
 });
 
 // Run git commit
 // src are the files to commit (or ./*)
-gulp.task(&#x27;commit&#x27;, function(){
-  return gulp.src(&#x27;./git-test/*&#x27;)
-    .pipe(git.<span class="apidocCodeKeywordSpan">commit</span>(&#x27;initial commit&#x27;));
+gulp.task('commit', function(){
+  return gulp.src('./git-test/*')
+    .pipe(git.<span class="apidocCodeKeywordSpan">commit</span>('initial commit'));
 });
 
 // Run git commit with options
-gulp.task(&#x27;commit&#x27;, function(){
-  return gulp.src(&#x27;./git-test/*&#x27;)
-    .pipe(git.commit(&#x27;initial commit&#x27;, {args: &#x27;-A --amend -s&#x27;}));
+gulp.task('commit', function(){
+  return gulp.src('./git-test/*')
+    .pipe(git.commit('initial commit', {args: '-A --amend -s'}));
 });
 ...</pre></li>
     </ul>
@@ -929,19 +922,19 @@ gulp.task(&#x27;commit&#x27;, function(){
   var cmd = compare;
 
   if (!/--diff-filter=/.test(opt.args)) {
-    cmd += &#x27; --diff-filter=ACM&#x27;;
+    cmd += ' --diff-filter=ACM';
   }
   if (opt.args) {
-    cmd += &#x27; &#x27; + opt.args;
+    cmd += ' ' + opt.args;
   }
-  exec(&#x27;git diff --raw -z &#x27; + cmd, {cwd: opt.cwd}, function(err, stdout) {
-    if (err) return srcStream.emit(&#x27;error&#x27;, err);
+  exec('git diff --raw -z ' + cmd, {cwd: opt.cwd}, function(err, stdout) {
+    if (err) return srcStream.emit('error', err);
     var files = getReaslt(stdout);
 
     if (opt.log) {
-      gutil.log(&#x27;git diff --name-status &#x27; + cmd + &#x27;\n&#x27; + files.map(function(diff) {
-        return diff.status + &#x27;\t&#x27; + diff.dstPath;
-      }).join(&#x27;\n&#x27;));
+      gutil.log('git diff --name-status ' + cmd + '\n' + files.map(function(diff) {
+        return diff.status + '\t' + diff.dstPath;
+      }).join('\n'));
     }
 
     files.forEach(function(diff) {
@@ -971,10 +964,10 @@ gulp.task(&#x27;commit&#x27;, function(){
 * get git diff result as a stream of vinyl `File` objects.
 *
 * @example
-const git = require(&#x27;gulp-git&#x27;);
-const eslint = require(&#x27;gulp-eslint&#x27;);
-git.<span class="apidocCodeKeywordSpan">diff</span>(&#x27;--cached&#x27;, {
- args: &#x27;-- *.js&#x27;
+const git = require('gulp-git');
+const eslint = require('gulp-eslint');
+git.<span class="apidocCodeKeywordSpan">diff</span>('--cached', {
+ args: '-- *.js'
 })
 .pipe(eslint())
 * @param {string}      compare compare arg for `git diff`
@@ -994,45 +987,45 @@ git.<span class="apidocCodeKeywordSpan">diff</span>(&#x27;--cached&#x27;, {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">exec = function (opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = { };
   if (!opt.log) opt.log = !cb;
   if (!opt.cwd) opt.cwd = process.cwd();
   if (!opt.maxBuffer) opt.maxBuffer = 200 * 1024; // Default buffer value for child_process.exec
 
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
-  var cmd = &#x27;git &#x27; + opt.args;
+  var cmd = 'git ' + opt.args;
   return exec(cmd, {cwd : opt.cwd, maxBuffer: opt.maxBuffer}, function(err, stdout, stderr) {
     if (err) return cb(err, stderr);
-    if (opt.log &#x26;&#x26; !opt.quiet) gutil.log(cmd + &#x27;\n&#x27; + stdout, stderr);
+    if (opt.log &amp;&amp; !opt.quiet) gutil.log(cmd + '\n' + stdout, stderr);
     else {
-      if (!opt.quiet) gutil.log(cmd + &#x27; (log : false)&#x27;, stderr);
+      if (!opt.quiet) gutil.log(cmd + ' (log : false)', stderr);
     }
     cb(err, stdout);
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-git.status({args: &#x27;--porcelain&#x27;}, function (err, stdout) {
+git.status({args: '--porcelain'}, function (err, stdout) {
   if (err) throw err;
 });
 });
 
 // Other actions that do not require a Vinyl
-gulp.task(&#x27;log&#x27;, function(){
-git.<span class="apidocCodeKeywordSpan">exec</span>({args : &#x27;log --follow index.js&#x27;}, function (err, stdout) {
+gulp.task('log', function(){
+git.<span class="apidocCodeKeywordSpan">exec</span>({args : 'log --follow index.js'}, function (err, stdout) {
   if (err) throw err;
 });
 });
 
 // Git clean files
-gulp.task(&#x27;clean&#x27;, function() {
-git.clean({ args: &#x27;-f&#x27; }, function (err) {
+gulp.task('clean', function() {
+git.clean({ args: '-f' }, function (err) {
 ...</pre></li>
     </ul>
 
@@ -1046,27 +1039,27 @@ git.clean({ args: &#x27;-f&#x27; }, function (err) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">fetch = function (remote, branch, opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
-  if (!branch) branch = &#x27;&#x27;;
+  if (!cb || typeof cb !== 'function') cb = function () {};
+  if (!branch) branch = '';
   if (!opt) opt = {};
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
-  if (!remote &#x26;&#x26; opt.args.indexOf(&#x27;--all&#x27;) === -1) remote = &#x27;origin&#x27;;
+  if (!opt.args) opt.args = ' ';
+  if (!remote &amp;&amp; opt.args.indexOf('--all') === -1) remote = 'origin';
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git fetch &#x27; + opt.args;
+  var cmd = 'git fetch ' + opt.args;
   var args = [];
   if (remote)
     args.push(remote);
   if (branch)
     args = args.concat(branch);
-  if (args.length &#x3e; 0)
+  if (args.length &gt; 0)
     cmd += escape(args);
   return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
     if (err) return cb(err);
@@ -1081,15 +1074,15 @@ git.clean({ args: &#x27;-f&#x27; }, function (err) {
 
 // Run git fetch
 // Fetch refs from all remotes
-gulp.task(&#x27;fetch&#x27;, function(){
-  git.<span class="apidocCodeKeywordSpan">fetch</span>(&#x27;&#x27;, &#x27;&#x27;, {args: &#x27;--all&#x27;}, function (err) {
+gulp.task('fetch', function(){
+  git.<span class="apidocCodeKeywordSpan">fetch</span>('', '', {args: '--all'}, function (err) {
     if (err) throw err;
   });
 });
 
 // Run git fetch
 // Fetch refs from origin
-gulp.task(&#x27;fetch&#x27;, function(){
+gulp.task('fetch', function(){
 ...</pre></li>
     </ul>
 
@@ -1103,19 +1096,19 @@ gulp.task(&#x27;fetch&#x27;, function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">init = function (opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git init &#x27; + opt.args;
+  var cmd = 'git init ' + opt.args;
   return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
     if (err) return cb(err);
     if (!opt.quiet) gutil.log(stdout, stderr);
@@ -1125,20 +1118,20 @@ gulp.task(&#x27;fetch&#x27;, function(){
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 ```javascript
-var gulp = require(&#x27;gulp&#x27;);
-var git = require(&#x27;gulp-git&#x27;);
+var gulp = require('gulp');
+var git = require('gulp-git');
 
 // Run git init
 // src is the root folder for git to initialize
-gulp.task(&#x27;init&#x27;, function(){
+gulp.task('init', function(){
 git.<span class="apidocCodeKeywordSpan">init</span>(function (err) {
   if (err) throw err;
 });
 });
 
 // Run git init with options
-gulp.task(&#x27;init&#x27;, function(){
-git.init({args: &#x27;--quiet --bare&#x27;}, function (err) {
+gulp.task('init', function(){
+git.init({args: '--quiet --bare'}, function (err) {
 ...</pre></li>
     </ul>
 
@@ -1152,20 +1145,20 @@ git.init({args: &#x27;--quiet --bare&#x27;}, function (err) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">merge = function (branch, opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
-  if (!branch) return cb &#x26;&#x26; cb(new Error(&#x27;gulp-git: Branch name is require git.merge(&#x22;name&#x22;)&#x27;));
+  if (!branch) return cb &amp;&amp; cb(new Error('gulp-git: Branch name is require git.merge("name")'));
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git merge &#x27; + opt.args + &#x27; &#x27; + escape([branch]);
+  var cmd = 'git merge ' + opt.args + ' ' + escape([branch]);
   return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
     if (err) return cb(err);
     if (!opt.quiet) gutil.log(stdout, stderr);
@@ -1173,21 +1166,21 @@ git.init({args: &#x27;--quiet --bare&#x27;}, function (err) {
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-git.checkout(&#x27;branchName&#x27;, {args:&#x27;-b&#x27;}, function (err) {
+git.checkout('branchName', {args:'-b'}, function (err) {
   if (err) throw err;
 });
 });
 
 // Merge branches to master
-gulp.task(&#x27;merge&#x27;, function(){
-git.<span class="apidocCodeKeywordSpan">merge</span>(&#x27;branchName&#x27;, function (err) {
+gulp.task('merge', function(){
+git.<span class="apidocCodeKeywordSpan">merge</span>('branchName', function (err) {
   if (err) throw err;
 });
 });
 
 // Reset a commit
-gulp.task(&#x27;reset&#x27;, function(){
-git.reset(&#x27;SHA&#x27;, function (err) {
+gulp.task('reset', function(){
+git.reset('SHA', function (err) {
 ...</pre></li>
     </ul>
 
@@ -1201,22 +1194,22 @@ git.reset(&#x27;SHA&#x27;, function (err) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">pull = function (remote, branch, opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
-  var cmd = &#x27;git pull &#x27; + opt.args;
-  if (typeof remote === &#x27;string&#x27;) {
-    cmd += &#x27; &#x27; + escape(remote);
+  var cmd = 'git pull ' + opt.args;
+  if (typeof remote === 'string') {
+    cmd += ' ' + escape(remote);
   }
-  if (branch &#x26;&#x26; typeof branch === &#x27;string&#x27; || branch &#x26;&#x26; branch[0]) {
-    cmd +=  &#x27; &#x27; + escape([].concat(branch));
+  if (branch &amp;&amp; typeof branch === 'string' || branch &amp;&amp; branch[0]) {
+    cmd +=  ' ' + escape([].concat(branch));
   }
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
@@ -1233,16 +1226,16 @@ git.reset(&#x27;SHA&#x27;, function (err) {
 // Run git pull
 // remote is the remote repo
 // branch is the remote branch to pull from
-gulp.task(&#x27;pull&#x27;, function(){
-git.<span class="apidocCodeKeywordSpan">pull</span>(&#x27;origin&#x27;, &#x27;master&#x27;, {args: &#x27;--rebase&#x27;}, function
+gulp.task('pull', function(){
+git.<span class="apidocCodeKeywordSpan">pull</span>('origin', 'master', {args: '--rebase'}, function
  (err) {
   if (err) throw err;
 });
 });
 
 // Run git pull from multiple branches
-gulp.task(&#x27;pull&#x27;, function(){
-git.pull(&#x27;origin&#x27;, [&#x27;master&#x27;, &#x27;develop&#x27;], function (err) {
+gulp.task('pull', function(){
+git.pull('origin', ['master', 'develop'], function (err) {
 ...</pre></li>
     </ul>
 
@@ -1257,22 +1250,22 @@ git.pull(&#x27;origin&#x27;, [&#x27;master&#x27;, &#x27;develop&#x27;], function
     <ul>
     <li>description and source-code<pre class="apidocCodePre">push = function (remote, branch, opt, cb) {
 
-  if (!remote) remote = &#x27;origin&#x27;;
+  if (!remote) remote = 'origin';
   if (branch === null) {
-    branch = &#x27;&#x27;;
+    branch = '';
   } else if (!branch) {
-    branch = &#x27;master&#x27;;
+    branch = 'master';
   }
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
-  var cmd = &#x27;git push &#x27; + escape([].concat(remote, branch)) + &#x27; &#x27; + opt.args;
+  var cmd = 'git push ' + escape([].concat(remote, branch)) + ' ' + opt.args;
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
   return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
@@ -1288,15 +1281,15 @@ git.pull(&#x27;origin&#x27;, [&#x27;master&#x27;, &#x27;develop&#x27;], function
 // Run git push
 // remote is the remote repo
 // branch is the remote branch to push to
-gulp.task(&#x27;push&#x27;, function(){
-  git.<span class="apidocCodeKeywordSpan">push</span>(&#x27;origin&#x27;, &#x27;master&#x27;, function (err) {
+gulp.task('push', function(){
+  git.<span class="apidocCodeKeywordSpan">push</span>('origin', 'master', function (err) {
     if (err) throw err;
   });
 });
 
 // Run git push with options
 // branch is the remote branch to push to
-gulp.task(&#x27;push&#x27;, function(){
+gulp.task('push', function(){
 ...</pre></li>
     </ul>
 
@@ -1310,20 +1303,20 @@ gulp.task(&#x27;push&#x27;, function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">removeRemote = function (remote, opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
-  if (!remote) cb(new Error(&#x27;gulp-git: remote is required git.removeRemote(&#x22;origin&#x22;)&#x27;));
+  if (!cb || typeof cb !== 'function') cb = function () {};
+  if (!remote) cb(new Error('gulp-git: remote is required git.removeRemote("origin")'));
   if (!opt) opt = {};
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git remote remove &#x27; + opt.args + &#x27; &#x27; + escape([remote]);
+  var cmd = 'git remote remove ' + opt.args + ' ' + escape([remote]);
   return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
     if (err) cb(err);
     if (!opt.quiet) gutil.log(stdout, stderr);
@@ -1337,8 +1330,8 @@ gulp.task(&#x27;push&#x27;, function(){
 
 // Run git remote remove
 // remote is the remote repo
-gulp.task(&#x27;removeremote&#x27;, function(){
-  git.<span class="apidocCodeKeywordSpan">removeRemote</span>(&#x27;origin&#x27;, function (err) {
+gulp.task('removeremote', function(){
+  git.<span class="apidocCodeKeywordSpan">removeRemote</span>('origin', function (err) {
     if (err) throw err;
   });
 });
@@ -1359,20 +1352,20 @@ gulp.task(&#x27;removeremote&#x27;, function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">reset = function (commit, opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
-  if (!commit) commit = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
+  if (!commit) commit = ' ';
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git reset &#x27; + opt.args + &#x27; &#x27; + escape([commit]);
+  var cmd = 'git reset ' + opt.args + ' ' + escape([commit]);
   return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
     if (err) return cb(err);
     if (!opt.quiet) gutil.log(stdout, stderr);
@@ -1381,21 +1374,21 @@ gulp.task(&#x27;removeremote&#x27;, function(){
 
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-git.merge(&#x27;branchName&#x27;, function (err) {
+git.merge('branchName', function (err) {
   if (err) throw err;
 });
 });
 
 // Reset a commit
-gulp.task(&#x27;reset&#x27;, function(){
-git.<span class="apidocCodeKeywordSpan">reset</span>(&#x27;SHA&#x27;, function (err) {
+gulp.task('reset', function(){
+git.<span class="apidocCodeKeywordSpan">reset</span>('SHA', function (err) {
   if (err) throw err;
 });
 });
 
 // Git rm a file or folder
-gulp.task(&#x27;rm&#x27;, function(){
-return gulp.src(&#x27;./gruntfile.js&#x27;)
+gulp.task('rm', function(){
+return gulp.src('./gruntfile.js')
 ...</pre></li>
     </ul>
 
@@ -1409,19 +1402,19 @@ return gulp.src(&#x27;./gruntfile.js&#x27;)
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">revParse = function (opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
-  if (!opt.args) opt.args = &#x27; &#x27;; // it will likely not give you what you want
+  if (!opt.args) opt.args = ' '; // it will likely not give you what you want
   if (!opt.cwd) opt.cwd = process.cwd();
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git rev-parse &#x27; + opt.args;
+  var cmd = 'git rev-parse ' + opt.args;
   return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
     if (err) return cb(err);
     if (stdout) stdout = stdout.trim(); // Trim trailing cr-lf
@@ -1432,17 +1425,17 @@ return gulp.src(&#x27;./gruntfile.js&#x27;)
     <li>example usage<pre class="apidocCodePre">...
 
 ```js
-git.reset(&#x27;HEAD&#x27; {args:&#x27;--hard&#x27;}, function (err) {
+git.reset('HEAD' {args:'--hard'}, function (err) {
   //if (err) ...
 });
 ```
 
 ### git.<span class="apidocCodeKeywordSpan">revParse</span>(opt, cb)
-`git rev-parse &#x3c;options&#x3e;`
+`git rev-parse &lt;options&gt;`
 
 Get details about the repository
 
-`opt`: Object (optional) `{args: &#x27;options&#x27;, cwd: &#x27;/cwd/path&#x27;, quiet: true, maxBuffer: 200 * 1024}`
+`opt`: Object (optional) `{args: 'options', cwd: '/cwd/path', quiet: true, maxBuffer: 200 * 1024}`
 
 `cb`: function, passed err if any and command stdout
 ...</pre></li>
@@ -1459,7 +1452,7 @@ Get details about the repository
     <ul>
     <li>description and source-code<pre class="apidocCodePre">rm = function (opt) {
   if (!opt) opt = {};
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
   var paths = [];
   var files = [];
@@ -1476,7 +1469,7 @@ Get details about the repository
 
     var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-    var cmd = &#x27;git rm &#x27; + escape(paths) + &#x27; &#x27; + opt.args;
+    var cmd = 'git rm ' + escape(paths) + ' ' + opt.args;
     var that = this;
     exec(cmd, {cwd: cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
       if (err) cb(err);
@@ -1494,16 +1487,16 @@ Get details about the repository
 });
 
 // Git rm a file or folder
-gulp.task(&#x27;rm&#x27;, function(){
-  return gulp.src(&#x27;./gruntfile.js&#x27;)
+gulp.task('rm', function(){
+  return gulp.src('./gruntfile.js')
     .pipe(git.<span class="apidocCodeKeywordSpan">rm</span>());
 });
 
-gulp.task(&#x27;addSubmodule&#x27;, function(){
-  git.addSubmodule(&#x27;https://github.com/stevelacy/git-test&#x27;, &#x27;git-test&#x27;, { args: &#x27;-b master&#x27;});
+gulp.task('addSubmodule', function(){
+  git.addSubmodule('https://github.com/stevelacy/git-test', 'git-test', { args: '-b master'});
 });
 
-gulp.task(&#x27;updateSubmodules&#x27;, function(){
+gulp.task('updateSubmodules', function(){
 ...</pre></li>
     </ul>
 
@@ -1518,20 +1511,20 @@ gulp.task(&#x27;updateSubmodules&#x27;, function(){
     <ul>
     <li>description and source-code<pre class="apidocCodePre">stash = function (opt, cb) {
 
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
 
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
-  if (!opt.args) opt.args = &#x27;save --include-untracked &#x22;gulp-stash&#x22;&#x27;;
+  if (!opt.args) opt.args = 'save --include-untracked "gulp-stash"';
   if (!opt.cwd) opt.cwd = process.cwd();
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git stash &#x27; + opt.args;
+  var cmd = 'git stash ' + opt.args;
   exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
     if (err) return cb(err);
     if (!opt.quiet) gutil.log(stdout, stderr);
@@ -1552,40 +1545,40 @@ gulp.task(&#x27;updateSubmodules&#x27;, function(){
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">status = function (opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
   if (!opt.maxBuffer) opt.maxBuffer = 200 * 1024; // Default buffer value for child_process.exec
 
-  var cmd = &#x27;git status &#x27; + opt.args;
+  var cmd = 'git status ' + opt.args;
   return exec(cmd, {cwd : opt.cwd, maxBuffer: opt.maxBuffer}, function(err, stdout, stderr) {
     if (err) return cb(err, stderr);
-    if (!opt.quiet) gutil.log(cmd + &#x27;\n&#x27; + stdout, stderr);
+    if (!opt.quiet) gutil.log(cmd + '\n' + stdout, stderr);
     if (cb) cb(err, stdout);
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-gulp.task(&#x27;updateSubmodules&#x27;, function(){
-git.updateSubmodule({ args: &#x27;--init&#x27; });
+gulp.task('updateSubmodules', function(){
+git.updateSubmodule({ args: '--init' });
 });
 
 // Working tree status
-gulp.task(&#x27;status&#x27;, function(){
-git.<span class="apidocCodeKeywordSpan">status</span>({args: &#x27;--porcelain&#x27;}, function (err, stdout) {
+gulp.task('status', function(){
+git.<span class="apidocCodeKeywordSpan">status</span>({args: '--porcelain'}, function (err, stdout) {
   if (err) throw err;
 });
 });
 
 // Other actions that do not require a Vinyl
-gulp.task(&#x27;log&#x27;, function(){
-git.exec({args : &#x27;log --follow index.js&#x27;}, function (err, stdout) {
+gulp.task('log', function(){
+git.exec({args : 'log --follow index.js'}, function (err, stdout) {
 ...</pre></li>
     </ul>
 
@@ -1599,59 +1592,59 @@ git.exec({args : &#x27;log --follow index.js&#x27;}, function (err, stdout) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">tag = function (version, message, opt, cb) {
-  if (!cb &#x26;&#x26; typeof opt === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof opt === 'function') {
     // optional options
     cb = opt;
     opt = {};
   }
-  if (!cb &#x26;&#x26; typeof version === &#x27;function&#x27;) {
+  if (!cb &amp;&amp; typeof version === 'function') {
     cb = version;
-    version = &#x27;&#x27;;
-    message = &#x27;&#x27;;
+    version = '';
+    message = '';
   }
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
   if (!message) opt.lightWeight = true; else message = escape([message]);
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var signedarg = opt.signed ? &#x27; -s &#x27; : &#x27; -a &#x27;;
+  var signedarg = opt.signed ? ' -s ' : ' -a ';
 
-  var cmd = &#x27;git tag&#x27;;
-  if (version !== &#x27;&#x27;) {
+  var cmd = 'git tag';
+  if (version !== '') {
     if (!opt.lightWeight) {
-      cmd += &#x27; &#x27; + signedarg + &#x27; -m &#x27; + message + &#x27; &#x27;;
+      cmd += ' ' + signedarg + ' -m ' + message + ' ';
     }
-    cmd += opt.args + &#x27; &#x27; + escape([version]);
+    cmd += opt.args + ' ' + escape([version]);
   }
   var templ = gutil.template(cmd, {file: message});
   return exec(templ, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
     if (err) return cb(err);
-    if (!opt.quiet &#x26;&#x26; version !== &#x27;&#x27;) gutil.log(stdout, stderr);
-    if (version === &#x27;&#x27;) {
-      stdout = stdout.split(&#x27;\n&#x27;);
+    if (!opt.quiet &amp;&amp; version !== '') gutil.log(stdout, stderr);
+    if (version === '') {
+      stdout = stdout.split('\n');
     }
     return cb(null, stdout);
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-git.clone(&#x27;https://github.com/stevelacy/git-test&#x27;, {args: &#x27;./sub/folder&#x27;}, function(err) {
+git.clone('https://github.com/stevelacy/git-test', {args: './sub/folder'}, function(err) {
   // handle err
 });
 });
 
 // Tag the repo with a version
-gulp.task(&#x27;tag&#x27;, function(){
-git.<span class="apidocCodeKeywordSpan">tag</span>(&#x27;v1.1.1&#x27;, &#x27;Version message&#x27;, function (err) {
+gulp.task('tag', function(){
+git.<span class="apidocCodeKeywordSpan">tag</span>('v1.1.1', 'Version message', function (err) {
   if (err) throw err;
 });
 });
 
 // Tag the repo with a version and empty message
-gulp.task(&#x27;tag&#x27;, function(){
-git.tag(&#x27;v1.1.1&#x27;, &#x27;&#x27;, function (err) {
+gulp.task('tag', function(){
+git.tag('v1.1.1', '', function (err) {
 ...</pre></li>
     </ul>
 
@@ -1665,16 +1658,16 @@ git.tag(&#x27;v1.1.1&#x27;, &#x27;&#x27;, function (err) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">updateSubmodule = function (opt, cb) {
-  if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
+  if (!cb || typeof cb !== 'function') cb = function () {};
   if (!opt) opt = {};
   if (!opt.cwd) opt.cwd = process.cwd();
-  if (!opt.args) opt.args = &#x27; &#x27;;
+  if (!opt.args) opt.args = ' ';
 
   var maxBuffer = opt.maxBuffer || 200 * 1024;
 
-  var cmd = &#x27;git submodule update &#x27; + opt.args;
+  var cmd = 'git submodule update ' + opt.args;
   return exec(cmd, {cwd: opt.cwd, maxBuffer: maxBuffer}, function(err, stdout, stderr) {
-    if (err &#x26;&#x26; cb) cb(err);
+    if (err &amp;&amp; cb) cb(err);
     if (!opt.quiet) gutil.log(stdout, stderr);
     if (cb) cb();
   });
@@ -1682,17 +1675,17 @@ git.tag(&#x27;v1.1.1&#x27;, &#x27;&#x27;, function (err) {
     <li>example usage<pre class="apidocCodePre">...
 });
 
-gulp.task(&#x27;addSubmodule&#x27;, function(){
-git.addSubmodule(&#x27;https://github.com/stevelacy/git-test&#x27;, &#x27;git-test&#x27;, { args: &#x27;-b master&#x27;});
+gulp.task('addSubmodule', function(){
+git.addSubmodule('https://github.com/stevelacy/git-test', 'git-test', { args: '-b master'});
 });
 
-gulp.task(&#x27;updateSubmodules&#x27;, function(){
-git.<span class="apidocCodeKeywordSpan">updateSubmodule</span>({ args: &#x27;--init&#x27; });
+gulp.task('updateSubmodules', function(){
+git.<span class="apidocCodeKeywordSpan">updateSubmodule</span>({ args: '--init' });
 });
 
 // Working tree status
-gulp.task(&#x27;status&#x27;, function(){
-git.status({args: &#x27;--porcelain&#x27;}, function (err, stdout) {
+gulp.task('status', function(){
+git.status({args: '--porcelain'}, function (err, stdout) {
   if (err) throw err;
 });
 ...</pre></li>
@@ -1707,3 +1700,4 @@ git.status({args: &#x27;--porcelain&#x27;}, function (err, stdout) {
     ]
 </div>
 </div>
+</body></html>

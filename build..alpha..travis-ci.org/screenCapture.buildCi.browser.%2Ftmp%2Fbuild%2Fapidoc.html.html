@@ -958,7 +958,23 @@ gulp.task('commit', function(){
 
   return srcStream;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* get git diff result as a stream of vinyl `File` objects.
+*
+* @example
+const git = require('gulp-git');
+const eslint = require('gulp-eslint');
+git.<span class="apidocCodeKeywordSpan">diff</span>('--cached', {
+ args: '-- *.js'
+})
+.pipe(eslint())
+* @param {string}      compare compare arg for `git diff`
+* @param {diffOptions} opt [diffOptions]{@link module:gulp-git/lib/diff~diffOptions}
+* @returns {stream}    stream of vinyl `File` objects.
+*/
+...</pre></li>
     </ul>
 
 
