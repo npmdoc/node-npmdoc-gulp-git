@@ -4,7 +4,7 @@
 <tspan x="10" y="26">3 megabytes installed</tspan>
 <tspan x="10" y="42"></tspan>
 <tspan x="10" y="58">node_modules</tspan>
-<tspan x="10" y="74">└─┬ gulp-git@2.1.0 </tspan>
+<tspan x="10" y="74">└─┬ gulp-git@2.2.0 </tspan>
 <tspan x="10" y="90">  ├── any-shell-escape@0.1.1 </tspan>
 <tspan x="10" y="106">  ├─┬ gulp-util@3.0.8 </tspan>
 <tspan x="10" y="122">  │ ├── array-differ@1.0.0 </tspan>

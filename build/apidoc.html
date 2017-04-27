@@ -51,7 +51,7 @@
 
         href="http://github.com/stevelacy/gulp-git"
 
-    >gulp-git (v2.1.0)</a>
+    >gulp-git (v2.2.0)</a>
 </h1>
 <h4>Git plugin for gulp (gulpjs.com)</h4>
 <div class="apidocSectionDiv"><a
@@ -1205,6 +1205,11 @@ git.reset(&#x27;SHA&#x27;, function (err) {
     // optional options
     cb = opt;
     opt = {};
+  }
+  // pull with callback only
+  if (!cb &#x26;&#x26; typeof remote === &#x27;function&#x27;) {
+    cb = remote;
+    remote = {};
   }
   if (!cb || typeof cb !== &#x27;function&#x27;) cb = function () {};
   if (!opt) opt = {};
