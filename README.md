@@ -1,6 +1,6 @@
 # npmdoc-gulp-git
 
-#### api documentation for  [gulp-git (v2.1.0)](http://github.com/stevelacy/gulp-git)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-git.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-git) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-git.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-git)
+#### basic api documentation for  [gulp-git (v2.2.0)](http://github.com/stevelacy/gulp-git)  [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-git.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-git) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-git.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-git)
 
 #### Git plugin for gulp (gulpjs.com)
 
@@ -21,16 +21,13 @@
 ```json
 
 {
-    "name": "gulp-git",
-    "description": "Git plugin for gulp (gulpjs.com)",
-    "version": "2.1.0",
-    "homepage": "http://github.com/stevelacy/gulp-git",
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/stevelacy/gulp-git.git"
+    "author": {
+        "name": "Steve Lacy me@slacy.me",
+        "url": "slacy.me"
     },
-    "author": "Steve Lacy me@slacy.me (slacy.me)",
-    "main": "./index.js",
+    "bugs": {
+        "url": "https://github.com/stevelacy/gulp-git/issues"
+    },
     "dependencies": {
         "any-shell-escape": "^0.1.1",
         "gulp-util": "^3.0.8",
@@ -39,28 +36,50 @@
         "through2": "^2.0.3",
         "vinyl": "^2.0.1"
     },
+    "description": "Git plugin for gulp (gulpjs.com)",
     "devDependencies": {
         "eslint": "^3.17.0",
         "mocha": "^3.2.0",
         "rimraf": "^2.6.1",
         "should": "^11.2.0"
     },
-    "scripts": {
-        "docs": "rimraf docs/* && jsdoc ./index.js ./lib --recurse --destination ./docs",
-        "pretest": "rimraf test/repo test/tmp && eslint ./index.js ./examples/ ./lib/ ./test/",
-        "test": "mocha --reporter spec --timeout 6000 test/main.js"
+    "directories": {},
+    "dist": {
+        "shasum": "edfbcb494c16770f13b97c01d0ba1e7ff87e9522",
+        "tarball": "https://registry.npmjs.org/gulp-git/-/gulp-git-2.2.0.tgz"
     },
     "engines": {
         "node": ">= 0.9.0"
     },
-    "license": "MIT",
+    "gitHead": "747a19659880b572a45abdcb510827a97a0e5d16",
+    "homepage": "http://github.com/stevelacy/gulp-git",
     "keywords": [
         "gulp",
         "git",
         "gulpgit",
         "gulpplugin",
         "gulp-plugin"
-    ]
+    ],
+    "license": "MIT",
+    "main": "./index.js",
+    "maintainers": [
+        {
+            "name": "stevelacy"
+        }
+    ],
+    "name": "gulp-git",
+    "optionalDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/stevelacy/gulp-git.git"
+    },
+    "scripts": {
+        "docs": "rimraf docs/* && jsdoc ./index.js ./lib --recurse --destination ./docs",
+        "pretest": "rimraf test/repo test/tmp && eslint ./index.js ./examples/ ./lib/ ./test/",
+        "test": "mocha --reporter spec --timeout 6000 test/main.js"
+    },
+    "version": "2.2.0",
+    "bin": {}
 }
 ```
 
